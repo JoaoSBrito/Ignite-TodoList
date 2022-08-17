@@ -1,0 +1,63 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: -1.5rem;
+  position: relative;
+}
+
+.todoForm {
+  display: flex;
+  gap: .5rem;
+
+  font-weight: 400;
+  font-size: 14px;
+
+  color: var(--gray-100);
+}
+
+.todoForm input {
+  width: 624px;
+  height: 54px;
+
+  background-color: var(--gray-500);
+  color: var(--gray-100);
+  border: 1px solid var(--gray-700);
+  border-radius: 8px;
+
+  padding: 0 1rem;
+  outline: 1px;
+}
+
+.todoForm input:focus {
+  border: 1px solid var(--blue-800);
+}
+
+.todoForm button {
+  background-color: var(--blue-800);
+  color: var(--gray-100);
+
+  width: 90px;
+  height: 54px;
+
+  border: none;
+  border-radius: 8px;
+
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+}
+
+.todoForm button:hover {
+  transition: .6s;
+  background-color: var(--blue-300);
+}
+
+.todoForm button:disabled {
+  opacity: .8;
+}
