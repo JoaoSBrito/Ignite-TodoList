@@ -8,30 +8,22 @@ interface ITaskProps {
   content:string,
   isDone: boolean
   deleteTask(DeleteTaskById:number) :void,
-  handleCheckbox:(id:number, isDone:boolean) => void,
-  isChecked:boolean
-  setIsChecked:(isChecked:boolean) => void
+  handleCheckbox:(id:number) => void,
 }
-export function Task( {id, content, isDone, deleteTask, handleCheckbox, isChecked, setIsChecked}:ITaskProps ){
+export function Task( {id, content, isDone, deleteTask, handleCheckbox}:ITaskProps ){
 
-  const [done, setDone] = useState(isDone)
-
-  function handleDone(event: ChangeEvent<HTMLInputElement>) {
-    setDone(event.target.checked)
-    handleCheckbox(id, event.target.checked)
-    setIsChecked(!isChecked)
-  }
+  const [done, setDone] = useState(false)
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
         <div className={styles.taskItem}>
-          <label  className={ done === true ? `${styles.isActive}` : `${styles.isNot}` }>
+          <label key={id}  className={ done === true ? `${styles.isActive}` : `${styles.isNot}` }>
             <Checkbox
             size='small'
-            key={id}
-            checked={isChecked}
-            onChange={handleDone}
+            id={`custom-checkbox-${id}`}
+            checked={isDone}
+            onClick={() => handleCheckbox(id)}
             />
             {content}
           </label>

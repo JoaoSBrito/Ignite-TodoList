@@ -53,19 +53,14 @@ export function TaskContainer() {
   //   console.log(taskList)
   // }
 
-  function handleCheckbox() {
-    // const taskList = tasks.map(task => {
-    //   if(task.isDone === true) {
-    //     task.isDone = !task.isDone
-    //     console.log('true')
-    //   } else {
-    //     console.log('false')
-    //   }
-    //   return task
-    // })
+  const handleCheckbox = (id:number) => {
+    const taskIndex = tasks.findIndex((task) => {
+      return task.id === id
+    })
+    const tempTasks = [...tasks]
+    tempTasks[taskIndex].isDone = !tempTasks[taskIndex].isDone
 
-    // setTasks(taskList)
-    // console.log(taskList)
+    setTasks(tempTasks)
 
     console.log(tasks)
   }
@@ -88,17 +83,15 @@ export function TaskContainer() {
 
         <div className={styles.taskList}>
           {/* Map to add taskItem */}
-          {tasks.map((task) => (
+          {tasks.map((task: ITask, index:number) => (
             // TASK INDIVIDUAL COMPONENT
             <Task 
-              key={task.id}
+              key={index}
               id={task.id}
               content={task.content}
               isDone={task.isDone}
               deleteTask={deleteTask} 
-              handleCheckbox={handleCheckbox}
-              isChecked = {isChecked}      
-              setIsChecked = {setIsChecked}      
+              handleCheckbox={handleCheckbox}  
             />
           ))}
         </div>
