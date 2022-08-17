@@ -1,0 +1,34 @@
+.content {
+  background-color: var(--gray-500);
+  color: var(--gray-100);
+  font-size: 14px;
+
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  
+  border-radius: 8px;
+  border: 1px solid var(--gray-400);
+
+  margin-bottom: 1rem;
+}
+
+.trash {
+  cursor: pointer;
+}
+
+.trash:hover path {
+  fill: var(--red-400);
+}
+
+.isActive {
+  text-decoration: line-through;
+  color: var(--gray-300);
+}
+
+.isNot {
+  text-decoration: initial;
+}
