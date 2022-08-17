@@ -46,6 +46,9 @@
 }
 
 .titles p span {
+  padding: 0 0.475rem;
+  border-radius: 8px;
+  background-color: var(--gray-400);
   color: var(--gray-100);
 }
 
